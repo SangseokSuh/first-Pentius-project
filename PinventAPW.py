@@ -10,6 +10,7 @@ con = mysql.connector.connect(
 
 cur = con.cursor()
 
+# Load existing csv file into a pandas dataframe
 select1 = """select b.partno, cast((b.onhand2 - b.allo2) as unsigned) as available 
 from 
     (select a.partno, sum(a.onhand) as onhand2, sum(a.allo) as allo2 
